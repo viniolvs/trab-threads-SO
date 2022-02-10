@@ -1,3 +1,4 @@
+package single_thread;
 
 public class MoneyCounter {
     private static int note_2=0;
