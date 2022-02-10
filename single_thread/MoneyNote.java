@@ -1,3 +1,5 @@
+package single_thread;
+
 public class MoneyNote {
     protected int value;
 

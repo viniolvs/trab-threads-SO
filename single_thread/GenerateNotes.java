@@ -1,3 +1,5 @@
+package single_thread;
+
 import java.util.Random;
 
 public class GenerateNotes {
