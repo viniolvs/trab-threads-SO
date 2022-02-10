@@ -27,9 +27,11 @@ public class Client implements Serializable{
         return balance;
     }
 
+    //Deposita uma quantidade passada como notas
     public void depositNotes(MoneyNote[] notes) {
         
     }
+    
 
     public void withdrawMoney(int ammount) {
         
