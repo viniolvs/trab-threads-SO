@@ -20,18 +20,28 @@ public class Client implements Serializable{
     public int getAccount() {
         return account;
     }
+    public void setAccount(int account) {
+        this.account = account;
+    }
+
     public String getName() {
         return name;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
     public int getBalance() {
         return balance;
+    }
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     //Deposita uma quantidade passada como notas
     public void depositNotes(MoneyNote[] notes) {
         
     }
-    
+
 
     public void withdrawMoney(int ammount) {
         
