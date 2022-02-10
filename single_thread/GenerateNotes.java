@@ -5,7 +5,7 @@ import java.util.Random;
 //Gera quantias de notas aleatórias
 public class GenerateNotes {
     private static final Random randomNote = new Random();
-    private static final int size=1000;
+    private static final Random randomSize = new Random();
     private MoneyNote[] notes;
 
     //construtor gera vetor de 1000 notas aleatórias 
@@ -52,6 +52,8 @@ public class GenerateNotes {
 
     //gera um vetor de 1000 notas aleatórias
     public static MoneyNote[] generateNotes() {
+        //gera um int aleatorio entre 10 e 20
+        int size = randomSize.nextInt(20) + 10;
         MoneyNote[] notes = new MoneyNote[size];
         for (int i = 0; i < size; i++) {
             notes[i] = generateMoneyNote();
