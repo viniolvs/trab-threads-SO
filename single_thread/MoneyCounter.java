@@ -9,6 +9,7 @@ public class MoneyCounter {
     private static int note_100=0;
     private static int note_200=0;
 
+    //retorna o valor da quantidade de notas de valor note_value
     public static int getNoteCount(int note_value) {
         int aux=-1;
         switch (note_value) {
@@ -39,6 +40,7 @@ public class MoneyCounter {
         return aux;
     }
 
+    //conta o valor total
     public static int countMoney(MoneyNote[] notes ) {
         int total=0;
         for (MoneyNote moneyNote : notes) {
@@ -47,6 +49,7 @@ public class MoneyCounter {
         return total;
     }
 
+    //conta cada nota de cada valor
     public static void countNotes(MoneyNote[] notes) {
         for (MoneyNote moneyNote : notes) {
             switch (moneyNote.getValue()) {

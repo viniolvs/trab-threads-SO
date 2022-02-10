@@ -2,11 +2,13 @@ package single_thread;
 
 import java.util.Random;
 
+//Gera quantias de notas aleatórias
 public class GenerateNotes {
     private static final Random randomNote = new Random();
     private static final int size=1000;
     private MoneyNote[] notes;
 
+    //construtor gera vetor de 1000 notas aleatórias 
     GenerateNotes(){
         this.notes = generateNotes();
     }
@@ -15,6 +17,7 @@ public class GenerateNotes {
         return notes;
     }
 
+    //Gera uma nota de valor aleatório
     public static MoneyNote generateMoneyNote() {
         int value=-1;
         int aux = randomNote.nextInt(7);
@@ -47,6 +50,7 @@ public class GenerateNotes {
         return generatedNote;
     }
 
+    //gera um vetor de 1000 notas aleatórias
     public static MoneyNote[] generateNotes() {
         MoneyNote[] notes = new MoneyNote[size];
         for (int i = 0; i < size; i++) {
