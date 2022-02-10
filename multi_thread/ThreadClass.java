@@ -7,11 +7,15 @@ import single_thread.WriteFile;
 
 
 public class ThreadClass extends Thread{
-    public ThreadClass(){
+    private int accountID;
+
+
+    public ThreadClass(int accountID){
         super();
+        this.accountID = accountID;
     }
 
-    public void run(int accountID) {
+    public void run() {
         //aqui é o que a thread vai fazer
         Client client = new Client();
         int balance = MoneyCounter.countMoney(GenerateNotes.generateNotes());
