@@ -28,7 +28,7 @@ public class Test {
         Client client = read_file.readClientRecord();
         read_file.closeFile();
 
-        System.out.printf("%d %s %d\n",client.getAccount(), client.getName(), client.getBalance());
+        System.out.printf("%d %d\n",client.getAccountID(), client.getBalance());
 
 
         long end = System.currentTimeMillis();

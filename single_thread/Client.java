@@ -1,33 +1,23 @@
 package single_thread;
 
 public class Client{
-    private int account;
-    private String name;
+    private int accountID;
     private int balance;
 
     public Client(){
-        this.account = 0;
-        this.name = "";
+        this.accountID = 0;
         this.balance = 0;
     }
-    public Client(int account, String name, int balance){
-        this.account = account;
-        this.name = name;
+    public Client(int accountID, int balance){
+        this.accountID = accountID;
         this.balance = balance;
     }
 
-    public int getAccount() {
-        return account;
+    public int getAccountID() {
+        return accountID;
     }
-    public void setAccount(int account) {
-        this.account = account;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
     }
 
     public int getBalance() {

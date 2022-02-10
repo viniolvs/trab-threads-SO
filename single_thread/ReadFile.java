@@ -23,8 +23,7 @@ public class ReadFile {
         Client client = new Client();
         try {
             while(input.hasNext()){
-                client.setAccount(input.nextInt());
-                client.setName(input.next());
+                client.setAccountID(input.nextInt());
                 client.setBalance(input.nextInt());
             }
         } catch (NoSuchElementException e) {
