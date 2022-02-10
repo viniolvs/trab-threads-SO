@@ -23,6 +23,6 @@ public class ThreadClass extends Thread{
         client.setAccountID(accountID);
 
         WriteFile writeFile = new WriteFile();
-        writeFile.addRecord(client.getAccountID(), client.getBalance());
+        writeFile.doItAll(client.getAccountID(), client.getBalance());
     }
 }

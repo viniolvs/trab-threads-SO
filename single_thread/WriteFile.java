@@ -25,7 +25,9 @@ public class WriteFile {
         try {
             output.format("%d %d\n", account, balance);
         } catch (FormatterClosedException e) {
-            System.out.println("Error writing on file");
+            System.err.println("Error writing on file");
+        } catch(NullPointerException e){
+            System.err.println("Error writing on file");
         }
         
     }
@@ -35,7 +37,7 @@ public class WriteFile {
             output.close();
     }
 
-    public void doItAll(int account, String name, int balance) {
+    public void doItAll(int account, int balance) {
         openFile();
         addRecord(account, balance);
         closeFile();

@@ -20,7 +20,7 @@ public class Test {
         System.out.println("Total: "+total+ "\nNotas de " +note_value+ " = "+note);*/
 
         WriteFile write_file = new WriteFile();
-        write_file.doItAll(2, "Vinicius", 40000);
+        write_file.doItAll(2, 40000);
 
         ReadFile read_file = new ReadFile();
 
