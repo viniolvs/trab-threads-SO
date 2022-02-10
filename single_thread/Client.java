@@ -1,7 +1,6 @@
 package single_thread;
-import java.io.Serializable;
 
-public class Client implements Serializable{
+public class Client{
     private int account;
     private String name;
     private int balance;
@@ -30,20 +29,11 @@ public class Client implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+
     public int getBalance() {
         return balance;
     }
     public void setBalance(int balance) {
         this.balance = balance;
-    }
-
-    //Deposita uma quantidade passada como notas
-    public void depositNotes(MoneyNote[] notes) {
-        
-    }
-
-
-    public void withdrawMoney(int ammount) {
-        
     }
 }
