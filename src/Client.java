@@ -9,5 +9,14 @@ public class Client{
         name = GenerateData.getName(ID);
         clientID = ID;
     }
+    public String getName() {
+        return name;
+    }
+    public int getID() {
+        return clientID;
+    }
+    public Book[] getLoanBooks(){
+        return loans;
+    }
     
 }

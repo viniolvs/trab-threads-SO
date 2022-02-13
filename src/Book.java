@@ -1,4 +1,4 @@
-package single_thread;
+package src;
 
 public class Book {
     private int bookID;
