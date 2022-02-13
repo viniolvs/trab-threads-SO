@@ -4,9 +4,9 @@ public class Client{
     private int accountID;
     private int balance;
 
-    public Client(){
-        this.accountID = 0;
-        this.balance = 0;
+    public Client(int accountID){
+        this.accountID = accountID;
+        this.balance = GenerateBalance.getBalance();
     }
     public Client(int accountID, int balance){
         this.accountID = accountID;
@@ -16,10 +16,9 @@ public class Client{
     public int getAccountID() {
         return accountID;
     }
-    public void setAccountID(int accountID) {
+    protected void setAccountID(int accountID) {
         this.accountID = accountID;
     }
-
     public int getBalance() {
         return balance;
     }

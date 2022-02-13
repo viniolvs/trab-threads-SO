@@ -25,7 +25,7 @@ public class WriteFile {
         try {
             output.format("%d %d\n", account, balance);
         } catch (FormatterClosedException e) {
-            System.err.println("Error writing on file");
+            System.err.println("Error writing on file: ClosedException");
         } catch(NullPointerException e){
             System.err.println("Error writing on file");
         }
