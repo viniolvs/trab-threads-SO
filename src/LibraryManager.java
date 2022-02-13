@@ -7,6 +7,12 @@ public class LibraryManager {
     private ArrayList<Book> books;
     private ArrayList<Loan> loans;
 
+    public LibraryManager(){
+        clients = new ArrayList<Client>();
+        books = new ArrayList<Book>();
+        loans = new ArrayList<Loan>();
+    }
+
     public ArrayList<Client> getClients() {
         return clients;
     }
@@ -23,14 +29,15 @@ public class LibraryManager {
         books.add(book);
     }
     
-    public void loanBook (Book book, Client client){
-        if (clients.contains(client) && books.contains(book)){       
-            if (client.getLoans()<=1) {
-                loans.add(new Loan(book, client));
-                client.addLoan();
-            }
+    public boolean loanBook (Book book, Client client){
+        
+        if(verifieLoan(book)){
+            return false;
         }
+        loans.add(new Loan(book, client));
+        return true;
     }
+
     public boolean verifieLoan(Book book) {
         for (Loan loan : loans) {
             if (book.getID() == loan.getBook().getID())
