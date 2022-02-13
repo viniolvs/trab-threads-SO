@@ -1,4 +1,4 @@
-package single_thread;
+package src;
 
 public class Client{
     private String name;
@@ -8,7 +8,6 @@ public class Client{
     public Client(int ID){
         name = GenerateData.getName(ID);
         clientID = ID;
-        
     }
     
 }

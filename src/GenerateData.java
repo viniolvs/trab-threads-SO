@@ -1,4 +1,4 @@
-package single_thread;
+package src;
 
 import java.util.Random;
 
