@@ -3,11 +3,12 @@ package src;
 public class Client{
     private String name;
     private int clientID;
-    private Book[] loans;
+    private int loans;
 
     public Client(int ID){
         name = GenerateData.getName(ID);
         clientID = ID;
+        loans = 0;
     }
     public String getName() {
         return name;
@@ -15,8 +16,11 @@ public class Client{
     public int getID() {
         return clientID;
     }
-    public Book[] getLoanBooks(){
+    public int getLoans(){
         return loans;
+    }
+    public void addLoan() {
+        loans++;
     }
     
 }
