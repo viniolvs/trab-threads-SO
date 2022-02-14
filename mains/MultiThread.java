@@ -2,6 +2,7 @@ package mains;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 
 import src.*;
 
@@ -11,6 +12,7 @@ public class MultiThread {
         
         long begin = System.currentTimeMillis();
         int ID = 0;
+        Semaphore sem = new Semaphore(1);
         //Semaphore sem = new Semaphore(1);
             
        
@@ -24,10 +26,11 @@ public class MultiThread {
         
 
         ExecutorService executor = Executors.newFixedThreadPool(5);
-        for (int i = 0; i < 10; i++) {
-                executor.execute(new LoanThread(library, library.getBooks().get(i), library.getClients().get(i)));
-                executor.execute(new LoanThread(library, library.getBooks().get(i), library.getClients().get(i+10)));
-        }
+        int i=0;
+        //for (int i = 0; i < 10; i++) {
+                executor.execute(new LoanThread(library, library.getBooks().get(i), library.getClients().get(i),sem));
+                executor.execute(new LoanThread(library, library.getBooks().get(i), library.getClients().get(i+10),sem));
+        //}
         executor.shutdown();
 
 

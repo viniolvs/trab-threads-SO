@@ -3,9 +3,9 @@ package src;
 import java.util.ArrayList;
 
 public class LibraryManager {
-    private ArrayList<Client> clients;
-    private ArrayList<Book> books;
-    private ArrayList<Loan> loans;
+    private final ArrayList<Client> clients;
+    private final ArrayList<Book> books;
+    private final ArrayList<Loan> loans;
 
     public LibraryManager(){
         clients = new ArrayList<Client>();
@@ -31,11 +31,13 @@ public class LibraryManager {
     
     public boolean loanBook (Book book, Client client){
         
-        if(verifieLoan(book)){
+        if(verifieLoan(book) == true){
             return false;
         }
-        loans.add(new Loan(book, client));
-        return true;
+        else{
+            loans.add(new Loan(book, client));
+            return true;
+        }
     }
 
     public boolean verifieLoan(Book book) {
