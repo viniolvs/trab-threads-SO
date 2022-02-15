@@ -5,11 +5,11 @@ import java.util.concurrent.Semaphore;
 import java.lang.InterruptedException;
 public class LoanThread implements Runnable{
     Semaphore sem;
-    private final LibraryManager library;
-    private Book book;
+    private final CarShare library;
+    private Car book;
     private Client client;
 
-    public LoanThread(LibraryManager library, Book book, Client client,Semaphore sem){
+    public LoanThread(CarShare library, Car book, Client client,Semaphore sem){
         this.library = library;
         this.book = book;
         this.client = client;

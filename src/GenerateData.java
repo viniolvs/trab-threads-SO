@@ -6,7 +6,7 @@ import java.util.Random;
 public class GenerateData {
     private static final Random random = new Random();
 
-    //Book data
+    //Car data
     public static int getYear() {
         return random.nextInt(2022)+1900;
     }
@@ -39,6 +39,7 @@ public class GenerateData {
         return CPF;
     }
 
+    //Driver data
     public static String getDriverLicense() {
         String cnh = "00000000000";
         for (int i = 0; i < cnh.length(); i++) {
@@ -53,5 +54,14 @@ public class GenerateData {
             account.replaceFirst("0", Integer.toString(random.nextInt(9))); 
         }
         return account;
+    }
+
+    //Passenger data
+    public static String getCreditCard() {
+        String card = "0000 0000 0000 0000";
+        for (int i = 0; i < card.length(); i++) {
+            card.replaceFirst("0", Integer.toString(random.nextInt(9))); 
+        }
+        return card;
     }
 }

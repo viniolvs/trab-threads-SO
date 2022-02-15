@@ -16,9 +16,9 @@ public class MultiThread {
         //Semaphore sem = new Semaphore(1);
             
        
-        LibraryManager library = new LibraryManager();      
+        CarShare library = new CarShare();      
         for (int i = 0; i < 10; i++) {
-            library.addBook(new Book(i));
+            library.addBook(new Car(i));
         }
         for (int i = 0; i < 20; i++) {
             library.addClient(new Client(i));
