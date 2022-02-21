@@ -33,7 +33,7 @@ public class Application {
             return false;
         }
         else{
-            int index = searchAvailableDriver();
+            int index = searchAvailableCar();
             if (index!=0){
                 rides.get(index).takeSeat(passenger);
                 System.out.println("Ride take succesfully!");
@@ -46,7 +46,7 @@ public class Application {
     }
 
     //find an available car in registered rides, returns index to rides list
-    private int searchAvailableDriver() {
+    private int searchAvailableCar() {
         int index=0;
         for (Ride ride : rides) {
             if (!ride.fullCar())
