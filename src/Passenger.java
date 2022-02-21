@@ -1,13 +1,18 @@
 package src;
 
 public class Passenger extends User{
-    private String credit_card;
+    private double balance;
+
     public Passenger(int ID) {
         super(ID);
-        credit_card = GenerateData.getCreditCard();
+        balance = GenerateData.getBalance();
     }
     
-    protected String getCreditCard() {
-        return credit_card;
+    protected double getBalance() {
+        return balance;
+    }
+
+    protected void setBalance(double price){
+        balance-= price;
     }
 }

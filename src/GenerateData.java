@@ -26,6 +26,9 @@ public class GenerateData {
         else
             return "Black";
     }
+    public static int getSeats() {
+        return random.nextInt(3);
+    }
 
     //User data
     public static String getName(int ID) {
@@ -57,11 +60,8 @@ public class GenerateData {
     }
 
     //Passenger data
-    public static String getCreditCard() {
-        String card = "0000 0000 0000 0000";
-        for (int i = 0; i < card.length(); i++) {
-            card.replaceFirst("0", Integer.toString(random.nextInt(9))); 
-        }
-        return card;
+    public static double getBalance() {
+        double aux = random.nextInt(100)+10;;
+        return aux;
     }
 }

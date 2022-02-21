@@ -6,20 +6,14 @@ public class Car {
     private String color;
     private String plate;
     private int seats;
-    private Driver driver;
     
 
-    public Car(Driver driver, int ID) {
-        this.driver = driver;
+    public Car(int ID) {
         model = GenerateData.getModel(ID);
         year = GenerateData.getYear();
         color = GenerateData.getColor(ID);
         plate = GenerateData.getPlate();
-        seats = 3;
-    }
-
-    public Driver getDriver() {
-        return driver;
+        seats = GenerateData.getSeats();
     }
 
     public String getTitle() {
