@@ -28,9 +28,15 @@ public class Ride {
         return seats_taken;
     }
 
+    public boolean fullCar() {
+        if (seats_taken >= getCar().getSeats())
+            return true;
+        return false;
+    }
+
     //pega um assento de um objeto Ride
     public boolean takeSeat(Passenger passenger) {
-        if (seats_taken >= getCar().getSeats() || passenger.getBalance() < price){
+        if ( fullCar() || passenger.getBalance() < price){
             return false;
         }
         else {

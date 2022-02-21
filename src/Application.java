@@ -4,54 +4,81 @@ import java.util.ArrayList;
 
 public class Application {
     private final ArrayList<Passenger> passengers;
-    private final ArrayList<Car> cars;
+    private final ArrayList<Driver> drivers;
     private final ArrayList<Ride> rides;
 
     public Application(){
-        passengers = new ArrayList<Passenger>();
-        cars = new ArrayList<Car>();
-        rides = new ArrayList<Ride>();
+        passengers = new ArrayList<Passenger>(); //registered passengers
+        drivers = new ArrayList<Driver>(); //registered drivers
+        rides = new ArrayList<Ride>(); //online rides
     }
 
-    public boolean takeRide (Car car, Passenger passenger){
-        if (verifieCar(car) && verifiePassenger(passenger)) {
-            Ride ride = new Ride(car);
-            if(ride.takeSeat(passenger)){
-                addRide(ride);
+    //driver makes your car available to passengers
+    public void newRide (Driver driver){
+        if (verifieDriver(driver)) {
+            Ride ride = new Ride(driver);
+            addRide(ride);   
+        }
+    }
+
+    //passenger take an available ride
+    public boolean takeRide(Passenger passenger) {
+
+        if(!verifiePassenger(passenger)){
+            System.out.println("Passenger not registered!");
+            return false;
+        }
+        else if(rides.size()<=0){
+            System.out.println("No available rides!");
+            return false;
+        }
+        else{
+            int index = searchAvailableDriver();
+            if (index!=0){
+                rides.get(index).takeSeat(passenger);
+                System.out.println("Ride take succesfully!");
                 return true;
             }
             else
+                System.out.println("All cars available are full!");
                 return false;
         }
-        else
-            return false;
+    }
+
+    //find an available car in registered rides, returns index to rides list
+    private int searchAvailableDriver() {
+        int index=0;
+        for (Ride ride : rides) {
+            if (!ride.fullCar())
+                return index;
+        }
+        return 0;
+    }
+    private void addRide(Ride ride) {
+        rides.add(ride);
     }
 
     public void addPassenger(Passenger passenger) {
         passengers.add(passenger);
     }
     
-    public void addCar(Car car) {
-        cars.add(car);
-    }
-
-    private void addRide(Ride ride) {
-        rides.add(ride);
+    public void addDriver(Driver driver) {
+        drivers.add(driver);
     }
 
     public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
-    public ArrayList<Car> getCars() {
-        return cars;
+    public ArrayList<Driver> getDrivers() {
+        return drivers;
     }
 
     public ArrayList<Ride> getRides() {
         return rides;
     }
 
-    private boolean verifieCar(Car car) {
-        return cars.contains(car);
+    private boolean verifieDriver(Driver driver) {
+        return drivers.contains(driver);
     }
 
     private boolean verifiePassenger(Passenger p){
