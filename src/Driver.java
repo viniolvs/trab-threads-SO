@@ -1,9 +1,9 @@
 package src;
 
 public class Driver extends User {
-    private String driver_license;
-    private String bank_account;
-    private Car car;
+    private final String driver_license;
+    private final String bank_account;
+    private final Car car;
     
     public Driver(int ID){
         super(ID);
@@ -23,4 +23,8 @@ public class Driver extends User {
         return bank_account;
     }
 
+    @Override
+    public String toString() {
+        return "Driver: "+getName()+" ";
+    }
 }

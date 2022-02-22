@@ -8,7 +8,8 @@ public class GenerateData {
 
     //Car data
     public static int getYear() {
-        return random.nextInt(2022)+1900;
+        int year = random.nextInt((2022-2000)+1)+2000;
+        return year;
     }
     public static String getPlate() {
         String plate = "0000000";
@@ -61,7 +62,7 @@ public class GenerateData {
 
     //Passenger data
     public static double getBalance() {
-        double aux = random.nextInt(100)+10;;
+        double aux = random.nextInt((100-10)+1)+10;;
         return aux;
     }
 }

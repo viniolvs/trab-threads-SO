@@ -34,26 +34,36 @@ public class Application {
         }
         else{
             int index = searchAvailableCar();
-            if (index!=0){
-                rides.get(index).takeSeat(passenger);
-                System.out.println("Ride take succesfully!");
-                return true;
+            if (index!=-1){
+                boolean test = rides.get(index).takeSeat(passenger);
+                if(test){
+                    System.out.println("Ride take succesfully!");
+                    return true;
+                }
+                else{
+                    System.out.println("Failure!");
+                    return false;
+                }
             }
             else
-                System.out.println("All cars available are full!");
+                System.out.println("All available cars are full!");
                 return false;
         }
     }
 
     //find an available car in registered rides, returns index to rides list
     private int searchAvailableCar() {
-        int index=0;
+        int index=-1;
         for (Ride ride : rides) {
             if (!ride.fullCar())
-                return index;
+            {
+                return ++index;
+            }
+            index++;
         }
         return 0;
     }
+
     private void addRide(Ride ride) {
         rides.add(ride);
     }

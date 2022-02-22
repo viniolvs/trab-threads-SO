@@ -2,9 +2,9 @@ package src;
 
 
 public class User{
-    private String name;
-    private int ID;
-    private String CPF;
+    private final String name;
+    private final int ID;
+    private final String CPF;
 
     public User(int ID){
         name = GenerateData.getName(ID);

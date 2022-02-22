@@ -1,11 +1,11 @@
 package src;
 
 public class Car {
-    private String model;
-    private int year;
-    private String color;
-    private String plate;
-    private int seats;
+    private final String model;
+    private final int year;
+    private final String color;
+    private final String plate;
+    private final int seats;
     
 
     public Car(int ID) {
@@ -30,5 +30,10 @@ public class Car {
     }
     public int getSeats() {
         return seats;
+    }
+
+    @Override
+    public String toString() {
+        return "Car: "+model+" "+year+" "+color+" Seats: "+seats;
     }
 }

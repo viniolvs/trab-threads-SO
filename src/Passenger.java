@@ -12,7 +12,12 @@ public class Passenger extends User{
         return balance;
     }
 
-    protected void setBalance(double price){
+    protected void pay(double price){
         balance-= price;
+    }
+
+    @Override
+    public String toString() {
+        return "Passenger: "+getName()+" ";
     }
 }

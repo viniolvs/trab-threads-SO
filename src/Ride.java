@@ -2,13 +2,13 @@ package src;
 
 public class Ride {
     private final Driver driver;
-    private Passenger[] passengers;
+    private final Passenger[] passengers;
     private int seats_taken;
     double price;
 
     public Ride(Driver driver){
         this.driver = driver;
-        passengers = new Passenger[driver.getCar().getSeats()];
+        passengers = new Passenger[getCar().getSeats()];
         seats_taken = 0;
     }
 
@@ -31,7 +31,8 @@ public class Ride {
     public boolean fullCar() {
         if (seats_taken >= getCar().getSeats())
             return true;
-        return false;
+        else
+            return false;
     }
 
     //pega um assento de um objeto Ride
@@ -40,9 +41,20 @@ public class Ride {
             return false;
         }
         else {
-            passenger.setBalance(price);
-            passengers[seats_taken++] = passenger;
+            passenger.pay(price);
+            passengers[seats_taken] = passenger;
+            seats_taken++;
             return true;
         }
+    }
+
+    public void printString() {
+        System.out.println(driver.toString());
+        if (seats_taken>0){
+            for (int i = 0; i < seats_taken; i++) {
+                System.out.println(passengers[i].toString());
+            }
+        }
+        
     }
 }
