@@ -11,30 +11,38 @@ public class MultiThread {
     public static void main(String[] args) {
         
         long begin = System.currentTimeMillis();
-        int ID = 0;
-        Semaphore sem = new Semaphore(1);
-        //Semaphore sem = new Semaphore(1);
-            
+        Semaphore sem = new Semaphore(1);            
+        Application app = new Application();
        
-        Application library = new Application();      
-        for (int i = 0; i < 10; i++) {
-            library.addBook(new Car(i));
+        for (int i = 0; i < 40; i++) {
+            app.addPassenger(new Passenger(i));
         }
-        for (int i = 0; i < 20; i++) {
-            library.addClient(new Client(i));
+    
+        for (int i = 40; i < 60; i++) {
+            app.addDriver(new Driver(i));
+        }
+       
+
+        int i = 0;
+        ExecutorService executor = Executors.newCachedThreadPool();
+        for (i = 0; i + 2 < 6; i++) {
+                executor.execute(new TakeRideThread(app, app.getPassengers().get(i), app.getDrivers().get(0), sem));                
+                executor.execute(new TakeRideThread(app, app.getPassengers().get(i+1), app.getDrivers().get(0), sem));
+                executor.execute(new TakeRideThread(app, app.getPassengers().get(i+2), app.getDrivers().get(0), sem));
+            }
+        
+            /*executor.execute(new TakeRideThread(app, app.getPassengers().get(i), app.getDrivers().get(0), sem));                
+            executor.execute(new TakeRideThread(app, app.getPassengers().get(i+1), app.getDrivers().get(0), sem));
+            executor.execute(new TakeRideThread(app, app.getPassengers().get(i+2), app.getDrivers().get(0), sem));
+            */
+            executor.shutdown();
+
+
+        System.out.println("========================");
+        for (int j = 0; j < 1; j++) {
+            System.out.println(app.getDrivers().get(j%20).toString()+" "+app.getDrivers().get(j%20).getCar().toString());
         }
         
-
-        ExecutorService executor = Executors.newFixedThreadPool(5);
-        int i=0;
-        //for (int i = 0; i < 10; i++) {
-                executor.execute(new LoanThread(library, library.getBooks().get(i), library.getClients().get(i),sem));
-                executor.execute(new LoanThread(library, library.getBooks().get(i), library.getClients().get(i+10),sem));
-        //}
-        executor.shutdown();
-
-
-
         long end = System.currentTimeMillis();
         System.out.println("Levou "+(end-begin)+" milisegundos");
     }
