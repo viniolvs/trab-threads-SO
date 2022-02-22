@@ -8,16 +8,16 @@ public class SingleThread {
 
         
         Application app = new Application();
-        /*
+        
         for (int i = 0; i < 40; i++) {
             app.addPassenger(new Passenger(i));
         }
     
-        for (i = 40; i < 50; i++) {
+        for (int i = 40; i < 50; i++) {
             app.addDriver(new Driver(i));
         }
 
-        for (i=0; i < 10; i++) {
+        for (int i=0; i < 10; i++) {
             app.newRide(app.getDrivers().get(i));
         }
 
@@ -25,25 +25,12 @@ public class SingleThread {
             app.takeRide(app.getPassengers().get(i%10));
         }
        
-        System.out.println(app.getRides().toString());
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Ride "+i+": ");
+            app.getRides().get(i).printString();
+        }
 
         
-        
-        */
-
-        /*Driver driver = new Driver(0);
-        Passenger passenger = new Passenger(0);
-        Ride ride = new Ride(driver);
-
-        System.out.println(driver.getCar().toString());
-
-        app.addDriver(driver);
-        app.addPassenger(passenger);
-        app.newRide(driver);
-
-        app.takeRide(passenger);
-
-        app.getRides().get(0).printString();*/
         long end = System.currentTimeMillis();
         System.out.println("Levou "+(end-begin)+" milisegundos");
     }
